@@ -1,22 +1,22 @@
-## Your First App
+## DeskUtils
 
-Congratulations on creating your first app! Feel free to replace this text with your app's actual description.
+DeskUtils is an app for FreshDesk platform. [FreshDesk](https://freshdesk.com/) is a platform for easily handling of your customer queries and providing quick and efficient support facilities to yur customers.
 
-### Folder structure explained
+This is an utility app. It automatically reads out ticket content to supportmen so that they can give some rest to their eyes!. Also it allows supportmen to quickly search the web for anything, anytime and query 3 diffrent search engines (google, bing and duckduckgo) from within the app rather than manually openning new tabs to make the search.
 
-    .
-    ├── .gitignore                 Lets you exempt temporary files and folders from being added to version control
-    ├── README.md                  This file
-    ├── app                        Contains the files that are required for the front end component of the app
-    │   ├── app.js                 JS to render the dynamic portions of the app
-    │   ├── logo.svg               Sidebar icon SVG file. Should have a resolution of 64x64px.
-    │   ├── freshdesk_logo.png     The Freshdesk logo that is displayed in the app
-    │   ├── style.css              Style sheet for the app
-    │   ├── template.html          Contains the HTML required for the app’s UI
-    ├── config                     Contains the installation parameters and OAuth configuration
-    │   ├── iparam_en.json         Contains the parameters that will be collected during installation
-    │   └── iparam_test_data.json  Contains sample Iparam values that will used during testing
-    └── manifest.json              Contains app meta data and configuration information
+### How to run the app
 
-Additional details:
-1. The `_en` in the `iparam_en.json` file stands for the English language. If you need to support another language, say Italian, you need to have a `iparam_it.json` file in addition to the English one."
+The app is not yet published on FreshDesk app market. Howver it can be run from source.
+
+- Download or clone this repository.
+- Open your console, navigate to the repository folder, and execute the following command:
+  ``` fdk run ```
+  
+- Log into your Freshdesk account (if you do not have a Freshdesk account, sign up [here](https://freshdesk.com/signup)).
+- Go to ticket details page, in the address bar, append the URL with ?dev=true. 
+  For example, the URL should look like - https://subdomain.freshdesk.com/helpdesk/tickets/1?dev=true During local testing,
+  you may see a shield icon in the browser address bar. Clicking on the icon will display a warning message. 
+  A warning message is displayed as the support portal runs on HTTPS while the server that is used for local 
+  testing runs on HTTP. Click "Load unsafe scripts" to continue testing.
+- In the home page, select the Tickets tab from the left navigation bar and click any ticket.
+  The rendered app will be displayed on the right side of the page as shown below.
