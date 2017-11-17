@@ -1,0 +1,49 @@
+.logo {
+  height: 25px;
+  margin-top: 25px;
+  color: #424242;
+  font-size: 20px;
+  font-family: "Arial Black", Gadget, sans-serif ;
+}
+
+.read_out {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.read_out_text {
+  font-size: 14px;
+}
+
+.instant_search {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.search_icon {
+  cursor: pointer;
+  padding: 3px;
+}
+
+.search_input {
+  width: 100%;
+}
+
+.search_icon {
+  background-color: #9E9E9E;
+}
+
+.search_options {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
