@@ -126,7 +126,6 @@ function subChunker(s, max) {
 function doTTS(read_content) {
     //starting for the text to speech conversion using web speech api
 
-    var t = read_content.toLowerCase(); 
     var chunkList = getChunks(read_content);
     chunkList.forEach(function(chunk, index) {
         console.log(chunk);
@@ -155,12 +154,12 @@ function doSpeak(s, index, size) {
     msg.pitch = 1; // 0 to 2
     msg.text = s;
 
-    msg.onend = function(event) {
+    msg.onend = function() {
         if (index === size - 1) {
             $("#image_icon").attr('src', 'images/speak.svg');
             IS_SPEAKING = !IS_SPEAKING;
         }
-    }
+    };
 
     // Now speak...
 
