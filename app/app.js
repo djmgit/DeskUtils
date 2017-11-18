@@ -6,7 +6,7 @@ $(document).ready( function() {
             function() {
                 client.data.get('ticket')
                     .then(function(data) {
-                        init(data);
+                        init(data, client);
                     })
                     .catch(function(e) {
                         console.log('Exception - ', e);
@@ -20,13 +20,16 @@ $(document).ready( function() {
 var DEFAULT_CHUNK_SIZE = 125;
 var US_CHUNK_SIZE = 1024;
 var IS_SPEAKING = false;
+var DB_NAME = "shortcuts";
+
+var items = [];
 
 function remove_special(s) {
     s = s.replace(/[&\/\\#+()~%'":*?<>{}]/g, '');
     return s;
 }
 
-function init(data) {
+function init(data, client) {
     var description = data.ticket.description_text;
 
     $(".read_out").click(function() {
@@ -34,6 +37,7 @@ function init(data) {
     });
 
     init_search();
+    init_shortcuts(client);
 }
 
 function init_speech(description) {
@@ -205,4 +209,49 @@ function search_util() {
         var url = DUCKDUCKGO_URL + query;
         window.open(url, "_blank");
     }
+}
+
+function init_shortcuts(client) {
+    $(".quick_navigate_header").click(function() {
+        $(".shortcuts").slideToggle();
+    });
+
+    $(".add_new_button").click(function() {
+        var header = $(".add_new_header").val();
+        var url = $(".add_new_link").val();
+        if (header === "" || url === "") {
+            return;
+        }
+        items.push({
+            "title": header,
+            "url": url
+        });
+        console.log(items);
+
+        client.db.set( DB_NAME, items).then (
+          function(data) {
+            $(".add_new_header").val("");
+            $(".add_new_link").val("");
+            fetch_items(client);
+          },
+          function(error) {
+            // handle error if required
+        });
+    });
+}
+
+function fetch_items(client) {
+    client.db.get(DB_NAME).then (
+      function(data) {
+        items = data;
+        display_items();
+      },               
+      function(error) {
+        console.log(error)
+        items = [];
+    });
+}
+
+function display_items() {
+    
 }

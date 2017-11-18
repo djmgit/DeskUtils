@@ -44,6 +44,31 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
+.add_new {
+  display: flex;
+  flex-direction: column;
+}
+
+.add_new input {
+  margin-top: 5px;
+}
+
+.add_new_button {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.quick_navigate {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.shortcuts {
+  display: none;
+}
