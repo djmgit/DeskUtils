@@ -48,4 +48,4 @@ The app is not yet published on FreshDesk app market. Howver it can be run from 
 
 ### Browser information
 
-- Tested on Google Chrome on Ubuntu 16.04
+- Tested on **Google Chrome** on Ubuntu 16.04
