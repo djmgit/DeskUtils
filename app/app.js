@@ -215,6 +215,7 @@ function init_shortcuts(client) {
     $(".quick_navigate_header").click(function() {
         $(".shortcuts").slideToggle();
     });
+    fetch_items(client);
 
     $(".add_new_button").click(function() {
         var header = $(".add_new_header").val();
@@ -243,7 +244,10 @@ function init_shortcuts(client) {
 function fetch_items(client) {
     client.db.get(DB_NAME).then (
       function(data) {
-        items = data;
+        items = [];
+        for (key in data) {
+            items.push(data[key]);
+        }
         display_items();
       },               
       function(error) {
@@ -253,5 +257,10 @@ function fetch_items(client) {
 }
 
 function display_items() {
-    
+    var loaded_shortcuts = "";
+    items.forEach(function(item) {
+        var item_html = "<span class='item'><a href='" + item["url"] + "' target='_blank'>" + item["title"] + "</a><img src='images/remove.svg'></span>";
+        loaded_shortcuts += item_html;
+    });
+    $(".loaded_shortcuts").html(loaded_shortcuts);
 }

@@ -72,3 +72,15 @@
 .shortcuts {
   display: none;
 }
+
+.loaded_shortcuts {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+}
