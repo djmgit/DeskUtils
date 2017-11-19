@@ -218,8 +218,8 @@ function init_shortcuts(client) {
     fetch_items(client);
 
     $(".add_new_button").click(function() {
-        var header = $(".add_new_header").val();
-        var url = $(".add_new_link").val();
+        var header = $(".add_new_header").val().trim();
+        var url = $(".add_new_link").val().trim();
         if (header === "" || url === "") {
             return;
         }
@@ -229,7 +229,7 @@ function init_shortcuts(client) {
         });
         console.log(items);
 
-        client.db.set( DB_NAME, items).then (
+        client.db.set(DB_NAME, items).then (
           function(data) {
             $(".add_new_header").val("");
             $(".add_new_link").val("");
@@ -246,9 +246,13 @@ function fetch_items(client) {
       function(data) {
         items = [];
         for (key in data) {
+            if (Object.keys(data[key]).length === 1) {
+                break;
+            }
             items.push(data[key]);
         }
-        display_items();
+        display_items(client);
+        console.log(items);
       },               
       function(error) {
         console.log(error)
@@ -256,11 +260,27 @@ function fetch_items(client) {
     });
 }
 
-function display_items() {
+function display_items(client) {
     var loaded_shortcuts = "";
     items.forEach(function(item) {
-        var item_html = "<span class='item'><a href='" + item["url"] + "' target='_blank'>" + item["title"] + "</a><img src='images/remove.svg'></span>";
+        var item_html = "<span class='item'><a href='" + item["url"] + "'target='_blank'>" + item["title"] + "</a><img src='images/remove.svg' class='remove'></span>";
         loaded_shortcuts += item_html;
     });
     $(".loaded_shortcuts").html(loaded_shortcuts);
+    $(".remove").click(function() {
+        var title = $(this).prev().html();
+        items = items.filter(function(item) {
+            return item["title"] !== title.trim();
+        });
+        if (items.length === 0) {
+            items = [{"flag": "0"}];
+        }
+        client.db.set(DB_NAME, items).then (
+            function(data) {
+                fetch_items(client);
+            },
+            function(error) {
+            // handle error if required
+        });
+    });
 }

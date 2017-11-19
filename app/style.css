@@ -62,11 +62,27 @@
   justify-content: space-between;
   margin-top: 10px;
   cursor: pointer;
+  margin-bottom: 5px;
 }
 
 .quick_navigate {
   margin-top: 10px;
+}
+
+.quick_navigate_header {
   cursor: pointer;
+}
+
+.quick_navigate_header_text {
+  font-size: 16px;
+}
+
+.add_new_button_text {
+  font-size: 15px;
+}
+
+.add_new_button_icon {
+  font-size: 15px;
 }
 
 .shortcuts {
@@ -82,5 +98,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 5px;
+  margin-top: 8px;
+}
+
+.remove {
+  cursor: pointer;
 }
