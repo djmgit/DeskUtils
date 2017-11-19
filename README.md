@@ -2,7 +2,7 @@
 
 DeskUtils is an app for FreshDesk platform. [FreshDesk](https://freshdesk.com/) is a platform for easily handling of your customer queries and providing quick and efficient support facilities to yur customers.
 
-This is an utility app. It automatically reads out ticket content to supportmen so that they can give some rest to their eyes!. Also it allows supportmen to quickly search the web for anything, anytime and query 3 diffrent search engines (google, bing and duckduckgo) from within the app rather than manually openning new tabs to make the search.
+This is an utility app. It automatically reads out ticket content to supportmen so that they can give some rest to their eyes!. Also it allows supportmen to quickly search the web for anything, anytime and query 3 diffrent search engines (google, bing and duckduckgo) from within the app rather than manually openning new tabs to make the search. Apart from these two features it also allows you to add shortcut (links) to your important websites. You can add a shortcut by simply providing a title and link to any website which you need to access often. This provides you with quick navigation to your important websites (sites related to your work which you often require) and also you do not have to search for your those links in your long list of bookmarks. It helps you keep your shortcuts at one place and launch them from FreshDesk itself. You can also delete shortcuts.
 
 ### How to run the app
 
@@ -33,6 +33,11 @@ The app is not yet published on FreshDesk app market. Howver it can be run from 
 - Use search utility to search the web from inside your app rather than openning a search engine in another tab.
   Just type in your query, select a search engine and hit the search icon. You can select multiple options to 
   query multiple search engines.
+  
+- You can create a shortcut to your most frequently used sites. Click on **Quick Navigate** label, two input fields appear.
+  Provide title of your shortcut and link to your website. After you are done, click on **Add shortcut**, and a new shortcut
+  will be created for you. Next time when you require visiting the site, just click on the link from the Quick Navigate
+  section and your site will open in a new tab.
   
 ### Technology Stack
 
