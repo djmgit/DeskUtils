@@ -45,3 +45,7 @@ The app is not yet published on FreshDesk app market. Howver it can be run from 
 - CSS
 - JavaScript
 - Jquery
+
+### Browser information
+
+- Tested on Google Chrome on Ubuntu 16.04
